@@ -20,4 +20,6 @@ jobs:
       - name: Test
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: go test -v ./...
+        run: |
+          docker run --name mypg -v `pwd`/main.go:/var/lib/main.go -e POSTGRES_PASSWORD=secmask -d postgres
+          go test -v ./...
