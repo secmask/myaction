@@ -5,5 +5,7 @@ import (
 )
 
 func TestAA(t *testing.T) {
-
+	if Add(1,2)!=3{
+		t.Fatal("not equal")
+	}
 }
