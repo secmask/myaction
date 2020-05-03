@@ -18,11 +18,4 @@ func TestAA(t *testing.T) {
 		log.Fatal(err)
 	}
 
-	var res string
-	err = db.Get(&res, "SELECT version()")
-	if err != nil {
-		t.Fatal(err)
-	}
-	t.Log(res)
-
 }
