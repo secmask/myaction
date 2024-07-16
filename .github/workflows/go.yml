@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: prepare something
-        run: echo "prepare something"
+        run: echo "prepare something ${{ vars.SOMETHING }}"
   build:
     name: Build
     runs-on: ubuntu-latest
