@@ -8,7 +8,7 @@ jobs:
       - name: Set up Go 1.13
         uses: actions/setup-go@v1
         with:
-          go-version: 1.13
+          go-version: 1.22
       - name: Check out source code
         uses: actions/checkout@v1
       - name: Run golangci-lint
@@ -17,7 +17,7 @@ jobs:
           GOROOT: ""
         with:
           args: run --config .golangci.yml ./...
-          golangci_lint_version: v1.23
+          golangci_lint_version: v1.56
       - name: Build
         env:
           GOPROXY: "https://proxy.golang.org"
