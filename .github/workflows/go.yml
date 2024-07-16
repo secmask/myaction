@@ -1,23 +1,27 @@
 name: Build and test Go
 on: [push, pull_request]
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prepare something
+        run: echo "prepare something ${{ vars.SOMETHING }}"
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Go 1.13
+      - name: Set up Go 1.22
         uses: actions/setup-go@v1
         with:
-          go-version: 1.13
+          go-version: 1.22
       - name: Check out source code
-        uses: actions/checkout@v1
-      - name: Run golangci-lint
-        uses: actions-contrib/golangci-lint@v1
-        env:
-          GOROOT: ""
+        uses: actions/checkout@v3
+      - name: Golangci-lint
+        uses: golangci/golangci-lint-action@v3
         with:
-          args: run --config .golangci.yml ./...
-          golangci_lint_version: v1.23
+          version: v1.55.2
+          args: -v --config .golangci.yml
+          skip-go-installation: true
       - name: Build
         env:
           GOPROXY: "https://proxy.golang.org"
