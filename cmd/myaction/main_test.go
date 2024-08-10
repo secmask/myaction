@@ -1,21 +1,20 @@
 package main
 
 import (
-	"log"
+	"github.com/stretchr/testify/require"
+	"io"
+	"net/http"
 	"testing"
-
-	"github.com/jmoiron/sqlx"
-	_ "github.com/lib/pq"
 )
 
 func TestAA(t *testing.T) {
-	if Add(1, 2) != 3 {
-		t.Fatal("not equal")
-	}
-	connStr := "user=postgres dbname=postgres password=secret sslmode=disable"
-	db, err := sqlx.Open("postgres", connStr)
-	if err != nil {
-		log.Fatal(err)
-	}
 
+}
+
+func TestAB(t *testing.T) {
+	resp, err := http.Get("https://ifconfig.me")
+	require.NoError(t, err)
+	data, err := io.ReadAll(resp.Body)
+	require.NoError(t, err)
+	t.Log(string(data))
 }
