@@ -18,6 +18,6 @@ linters:
     - stylecheck
     - unconvert
     - goconst
-    - goimports
+    - gci
     - scopelint
     - gocritic
