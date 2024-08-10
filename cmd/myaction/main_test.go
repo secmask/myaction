@@ -8,10 +8,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestAA(t *testing.T) {
-
-}
-
 func TestAB(t *testing.T) {
 	resp, err := http.Get("https://ifconfig.me")
 	require.NoError(t, err)
