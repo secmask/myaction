@@ -7,17 +7,12 @@ linters:
     - errcheck
     - unused
     - gosimple
-    - structcheck
-    - varcheck
     - typecheck
     - govet
     - staticcheck
     - ineffassign
-    - deadcode
-    - golint
     - stylecheck
     - unconvert
     - goconst
-    - goimports
-    - scopelint
+    - gci
     - gocritic
